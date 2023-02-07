@@ -32,18 +32,18 @@ for i in range(1, 10):
     colunasPais =tabelaPais [0].find_all('td')
     #print(len(colunasPais))
     validar = 0 
-    for i in range (0, len (colunasPais)):
+    for ii in range (0, len (colunasPais)):
         #print (colunasPais[i].text )
         if (validar == 1):
-                capital = (colunasPais[i].text).strip()
+                capital = (colunasPais[ii].text).strip()
                 validar = 0
                 print (capital)
-        if (colunasPais[i].text).strip()=="Capital":
+        if (colunasPais[ii].text).strip()=="Capital":
                 validar = 1
 
        
     #print(link[0].get('href'))
-    arquivo.write(str(i) + ' - ' + (colunas[1].text).strip() + 
+    arquivo.write(str(ii) + ' - ' + (colunas[1].text).strip() + 
         ' - ' + (link[0].get('href')). strip() + '\n'
         '_'+capital)
         
