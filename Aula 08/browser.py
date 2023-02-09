@@ -3,6 +3,22 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from time import sleep
 from getpass import getpass
+import logging # biblioteca para criar log (historico) de eventos
+from datetime import datetime
+from os import system, path
+
+hoje = (datetime.now()).strftime('%Y-%m-%d_%H%M%S')
+Pasta = path.dirname (path.realpath(__file__))
+logging.basicConfig(
+    filename=f'{Pasta}/log/log{hoje}.log',
+    level=logging.DEBUG,
+    format='%(asctime)s %(levelname)s %(funcName)s => %(message)s'
+)
+
+
+
+
+
 
 def clicar (xpath):
     try:
@@ -19,9 +35,13 @@ def Escrever (xpath, texto):
         sleep (3)
     except :
         print (f'ERRO XPATH:{xpath}')
+
 email = input (" escreva seu email: ")
 passoard = getpass ("escreva sua senha: ")
         
+
+
+
 
 site = 'https://www.sp.senac.br' # time / sleep usados para  gerar uma espera no codigo 
 # o time sera usado para que de tempo da pagina carregar antes de execultar algo 
